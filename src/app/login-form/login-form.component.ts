@@ -11,9 +11,13 @@ import {StatusService} from '../status.service';
 })
 export class LoginFormComponent implements OnInit {
   loginForm: FormGroup;
+  //flag holds to show the processing
   loading = false;
+  //flags holds the form submit status
   formSubmitted = false;
+  //flag holds the current login status
   loginStatus = false;
+  //ng model object
   loginFormObj = {
     username:'samujwala',
     password:'testtest'
