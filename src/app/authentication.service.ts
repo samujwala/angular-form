@@ -1,12 +1,11 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
 import {Observable, of, pipe} from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
   loginSuccess:false;
-  constructor(private http:HttpClient) {
+  constructor() {
   }
   login(username: string, password: string): Observable<any> {
     return of([username,password]);

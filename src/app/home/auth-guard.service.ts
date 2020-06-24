@@ -16,6 +16,7 @@ export class AuthGuardService implements CanActivate{
     if(status){
       return true;
     }else {
+      confirm('Please login');
       return false;
     }
   }

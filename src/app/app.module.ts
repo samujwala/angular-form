@@ -7,10 +7,11 @@ import { ReactiveFormsModule} from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { StatusComponent } from './status/status.component';
+import { CustomPipePipe } from './custom-pipe.pipe';
 
 @NgModule({
   declarations: [
-    AppComponent,LoginFormComponent,HomeComponent, StatusComponent
+    AppComponent,LoginFormComponent,HomeComponent, StatusComponent, CustomPipePipe
   ],
     imports: [
         BrowserModule,

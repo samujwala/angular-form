@@ -2,17 +2,18 @@
   <div class="card" >
     <div class="card-header">
       <a class="card-link"  href="javascript:void(0);">
-        WELCOME HOME
+        HOME PAGE
       </a>
     </div>
 
     <div class="card m-2 zero-border padding-zero jumbotron">
       <div class="card-body">
         <div class="col-md-8 offset-md-4">
-          <button class="btn btn-primary mr-1" (click)="redirectPage()">
-            Back
-          </button>
+          <h1><span class="badge badge-pill badge-secondary">Welcome {{username | customPipe}} !!!</span></h1>
         </div>
+        <button class="btn btn-primary mr-1" (click)="redirectPage()">
+          Back
+        </button>
       </div>
     </div>
   </div>

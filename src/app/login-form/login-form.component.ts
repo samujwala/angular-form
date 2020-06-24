@@ -12,10 +12,12 @@ import {StatusService} from '../status.service';
 export class LoginFormComponent implements OnInit {
   loginForm: FormGroup;
   loading = false;
-  submitted = false;
+  formSubmitted = false;
   loginStatus = false;
-  username = 'samujwala';
-  password = 'testtest';
+  loginFormObj = {
+    username:'samujwala',
+    password:'testtest'
+  }
 
   constructor(
     private formBuilder: FormBuilder,
@@ -38,20 +40,26 @@ export class LoginFormComponent implements OnInit {
   }
 //form submit event
   onSubmit() {
-    this.submitted = true;
+    this.formSubmitted = true;
     // stop here if form is invalid
     if (this.loginForm.invalid) {
       return;
     }
     this.loading = true;
-   setTimeout(()=>{
+    setTimeout(()=>{
       this.authenticationService.login(this.fc.username.value, this.fc.password.value)
         .subscribe(
           data => {
             this.loginStatus = true;
+            console.log(this.loginFormObj.username);
+            console.log(this.loginFormObj.password);
             this.statusService.success('login successful',true);
             this.authenticationService.setLoginStatus(this.loginStatus);
-            this.router.navigate(['/home']).then(r => console.log(r));
+            this.router.navigate(['/home'],{
+              queryParams:{
+                username:this.loginFormObj.username
+              }
+            }).then(r => console.log(r));
           },
           error => {
             this.statusService.error('Error Occurred',true);

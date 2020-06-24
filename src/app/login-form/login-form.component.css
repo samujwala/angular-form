@@ -5,3 +5,8 @@
 .card-header{
   background-color: darkcyan;
 }
+
+.btn-radius{
+  border-radius: 20px;
+}
+
