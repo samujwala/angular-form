@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import {Observable, of, pipe} from 'rxjs';
+import {Observable, from} from 'rxjs';
+import {first, last} from "rxjs/operators";
 @Injectable({
   providedIn: 'root'
 })
@@ -8,7 +9,9 @@ export class AuthenticationService {
   constructor() {
   }
   login(username: string, password: string): Observable<any> {
-    return of([username,password]);
+    return from([username,password]).pipe(first(name=>name.length>0,'Login Success'),
+      last(pass=>pass.length>0,'Login Success')
+    );
   }
   //flag to set the login is successfull
   setLoginStatus(value){
